@@ -22,6 +22,9 @@
             background-color: var(--vsu-gray);
             color: var(--vsu-blue);
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         header {
@@ -60,6 +63,7 @@
             margin: 20px;
             background-color: var(--vsu-white);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex-grow: 1;
         }
 
         .section {
@@ -98,6 +102,30 @@
             height: auto;
         }
 
+        /* Registration Box */
+        .register-box {
+            background-color: var(--vsu-light-orange);
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .register-box h2 {
+            color: var(--vsu-blue);
+            margin-bottom: 15px;
+        }
+
+        .register-box p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
         /* Register Button Styling */
         .register-btn {
             background-color: var(--vsu-blue);
@@ -120,9 +148,10 @@
             padding: 1rem;
             background-color: var(--vsu-blue);
             color: var(--vsu-white);
-            position: fixed;
-            width: 100%;
+            position: relative;
             bottom: 0;
+            width: 100%;
+            flex-shrink: 0;
         }
 
         .contact-section {
@@ -142,6 +171,11 @@
 
             .logo-container img {
                 width: 60px;
+            }
+
+            .register-box {
+                width: 100%;
+                max-width: 100%;
             }
         }
     </style>
@@ -178,16 +212,25 @@
 
 <nav>
     <a href="#home">Home</a>
+    <a href="#objectives">Objectives</a>
     <a href="#why-participate">Why Participate</a>
     <a href="#challenges">Challenges</a>
     <a href="#prizes">Prizes</a>
+    <a href="#contact">Contact</a>
 </nav>
+
+<!-- Registration Box -->
+<div class="register-box">
+    <h2>Register for the Hackathon</h2>
+    <p id="registration-status">Checking status...</p>
+    <a href="https://forms.gle/pvAp7kXqZZvkvj2P6" id="register-btn" class="register-btn">Register Here</a>
+</div>
 
 <div class="container">
     <section id="home" class="section">
         <h2>Welcome to Collaborative Hackathon Fall 2024</h2>
         <p>The Collaborative Hackathon Fall 2024 brings together students from Virginia State University, National Taipei University, and Technical University of Moldova to solve real-world challenges using AI, IoT, cloud computing, data analytics, and other innovative technologies. This event mirrors real-world scenarios, where international collaboration is key to solving complex problems.</p>
-        <p>The registration is already started. The hackathon will formally start on <strong>Nov 4, 2024 </strong>on the unveilling of the problem set and will conclude on <strong>Nov 11, 2024 </strong>with the presentation of the solutions created by the participating teams!</p>
+        <p>The registration has already started. The hackathon will formally commence on <strong>Nov 4, 2024</strong> with the unveiling of the problem set and will conclude on <strong>Nov 11, 2024</strong> with the presentation of the solutions developed by participating teams!</p>
     </section>
 
     <section id="objectives" class="section">
@@ -203,13 +246,6 @@
     <section id="why-participate" class="section">
         <h2>Why Participate?</h2>
         <p>Gain real-world experience, network with peers and professionals, enhance your resume, and win exciting prizes. Showcase your creativity and collaboration skills across time zones!</p>
-    </section>
-
-    <section id="registration" class="section">
-        <h2>Registration</h2>
-        <p id="registration-status">Checking status...</p>
-        <a href="https://forms.gle/pvAp7kXqZZvkvj2P6" id="register-btn" class="register-btn">Register Now</a>
-        <p>Eligibility: Current students from the three universities are eligible to participate.</p>
     </section>
 
     <section id="challenges" class="section">
