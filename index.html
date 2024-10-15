@@ -5,66 +5,159 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collaborative Hackathon Fall 2024</title>
     <style>
+        /* VSU Color Theme */
+        :root {
+            --vsu-blue: #00205b;
+            --vsu-orange: #f47321;
+            --vsu-light-orange: #ffa300;
+            --vsu-white: #ffffff;
+            --vsu-gray: #f4f4f4;
+            --disabled-btn: #cccccc;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: var(--vsu-gray);
+            color: var(--vsu-blue);
+            line-height: 1.6;
         }
+
         header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1rem;
+            background-color: var(--vsu-blue);
+            color: var(--vsu-white);
+            padding: 1.5rem;
             text-align: center;
         }
+
+        header img {
+            width: 100px;
+            height: auto;
+        }
+
         nav {
             display: flex;
             justify-content: center;
-            background-color: #333;
+            background-color: var(--vsu-orange);
         }
+
         nav a {
-            color: white;
+            color: var(--vsu-white);
             padding: 14px 20px;
             text-decoration: none;
             text-align: center;
+            font-weight: bold;
         }
+
         nav a:hover {
-            background-color: #ddd;
-            color: black;
+            background-color: var(--vsu-light-orange);
+            color: var(--vsu-white);
         }
+
         .container {
             padding: 20px;
             margin: 20px;
-            background-color: white;
+            background-color: var(--vsu-white);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .section {
             margin-bottom: 40px;
         }
+
+        h2 {
+            color: var(--vsu-orange);
+        }
+
+        p, li {
+            font-size: 1.1rem;
+        }
+
         .faq dt {
             font-weight: bold;
             margin-top: 20px;
+            color: var(--vsu-blue);
         }
+
+        .coming-soon {
+            color: var(--vsu-light-orange);
+        }
+
+        /* Logo Container */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .logo-container img {
+            width: 80px;
+            height: auto;
+        }
+
+        /* Register Button Styling */
+        .register-btn {
+            background-color: var(--vsu-blue);
+            color: var(--vsu-white);
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .register-btn.disabled {
+            background-color: var(--disabled-btn);
+            cursor: not-allowed;
+        }
+
         footer {
             text-align: center;
             padding: 1rem;
-            background-color: #333;
-            color: white;
+            background-color: var(--vsu-blue);
+            color: var(--vsu-white);
             position: fixed;
             width: 100%;
             bottom: 0;
         }
-        .coming-soon {
-            color: red;
+
+        .contact-section {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .contact-section p {
+            margin: 5px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header img {
+                width: 80px;
+            }
+
+            .logo-container img {
+                width: 60px;
+            }
         }
     </style>
     <script>
         window.onload = function() {
             const today = new Date();
             const deadline = new Date('2024-11-04');
+            const registerButton = document.getElementById('register-btn');
+            
             if (today > deadline) {
                 document.getElementById('registration-status').textContent = 'Registration Closed';
+                registerButton.classList.add('disabled');
+                registerButton.disabled = true;
             } else {
                 document.getElementById('registration-status').textContent = 'Registration Open';
+                registerButton.disabled = false;
             }
         }
     </script>
@@ -73,7 +166,14 @@
 
 <header>
     <h1>Collaborative Hackathon Fall 2024</h1>
-    <p>Global Hackathon Involving Virginia State University, National Taipei University, and Technical University of Moldova</p>
+    <p>A Global Hackathon Involving Virginia State University, National Taipei University, and Technical University of Moldova</p>
+
+    <!-- Logos of Participating Universities -->
+    <div class="logo-container">
+        <img src="vsu-logo.jfif" alt="VSU Logo">
+        <img src="ntpu-logo.jfif" alt="National Taipei University Logo">
+        <img src="tuom-logo.jfif" alt="Technical University of Moldova Logo">
+    </div>
 </header>
 
 <nav>
@@ -86,35 +186,46 @@
 <div class="container">
     <section id="home" class="section">
         <h2>Welcome to Collaborative Hackathon Fall 2024</h2>
-        <p>The Collaborative Hackathon Fall 2024 brings together students from Virginia State University, National Taipei University, and Technical University of Moldova to solve real-world challenges using AI, IoT, cloud computing, and data analytics.</p>
-        <p>Finalize the dates for the hackathon!</p>
+        <p>The Collaborative Hackathon Fall 2024 brings together students from Virginia State University, National Taipei University, and Technical University of Moldova to solve real-world challenges using AI, IoT, cloud computing, data analytics, and other innovative technologies. This event mirrors real-world scenarios, where international collaboration is key to solving complex problems.</p>
+        <p><strong>Finalize the dates for the hackathon!</strong></p>
+    </section>
+
+    <section id="objectives" class="section">
+        <h2>Objectives of the Hackathon</h2>
+        <ul>
+            <li>Encourage cross-cultural collaboration between students from three countries.</li>
+            <li>Challenge students with technical and design problems requiring innovative solutions.</li>
+            <li>Provide real-world experience by simulating international teamwork in software engineering environments.</li>
+            <li>Enhance communication skills across time zones and cultural contexts.</li>
+        </ul>
     </section>
 
     <section id="why-participate" class="section">
         <h2>Why Participate?</h2>
-        <p>Gain real-world experience, network with peers and professionals, enhance your resume, and win exciting prizes. Showcase your creativity and collaboration across time zones!</p>
+        <p>Gain real-world experience, network with peers and professionals, enhance your resume, and win exciting prizes. Showcase your creativity and collaboration skills across time zones!</p>
     </section>
 
     <section id="registration" class="section">
         <h2>Registration</h2>
         <p id="registration-status">Checking status...</p>
-        <a href="https://forms.gle/pvAp7kXqZZvkvj2P6">Register Now</a>
-        <p>Eligibility: Students from the three universities can participate.</p>
+        <a href="https://forms.gle/pvAp7kXqZZvkvj2P6" id="register-btn" class="register-btn">Register Now</a>
+        <p>Eligibility: Current students from the three universities are eligible to participate.</p>
     </section>
 
     <section id="challenges" class="section">
         <h2>Challenges</h2>
-        <p>Three design problems will be unveiled on Nov 4, 2024:</p>
+        <p>On November 4, 2024, three exciting design challenges will be revealed. Each team will have one day to choose a challenge they are most passionate about solving and inform the organizing team. Once confirmed, teams will spend the week collaborating, brainstorming, and developing solutions to their selected challenge.</p>
+
         <ul>
-            <li>Challenge 1: Technical Innovation – Leverage AI and IoT to solve a healthcare problem (50 points).</li>
-            <li>Challenge 2: Sustainable Design – Create solutions for smart cities using data analytics (50 points).</li>
-            <li>Challenge 3: User Experience – Design user-friendly apps for memory-related conditions (100 points).</li>
+            <li>Challenge 1: <strong>Challenge details will be uploaded on November 4, 2024—stay tuned!</strong></li>
+            <li>Challenge 2: <strong>Challenge details will be uploaded on November 4, 2024—stay tuned!</strong></li>
+            <li>Challenge 3: <strong>Challenge details will be uploaded on November 4, 2024—stay tuned!</strong></li>
         </ul>
     </section>
 
     <section id="prizes" class="section">
         <h2>Prizes</h2>
-        <p>Exciting cash prizes and electronics will be awarded to the winning teams.</p>
+        <p>Exciting electronics and cash prizes will be awarded to the winning teams.</p>
     </section>
 
     <section id="judging-criteria" class="section">
@@ -136,20 +247,16 @@
             <dt>Who can participate?</dt>
             <dd>Students from Virginia State University, National Taipei University, and Technical University of Moldova.</dd>
             <dt>What kind of skills do I need?</dt>
-            <dd>Basic knowledge in AI, IoT, or data analytics is useful but not mandatory. Teamwork and creativity matter most!</dd>
+            <dd>Basic knowledge in computer science, IoT, AI, and data analytics is useful but not mandatory. Teamwork and creativity matter the most!</dd>
             <dt>How do I form a team?</dt>
-            <dd>Teams are automatically formed with two students from each university after registration.</dd>
+            <dd>Teams are composed of two students from each university. After registering, you will have access to a list of participants. Reach out via the Slack channel or email to form or join a team.</dd>
         </dl>
     </section>
 
-    <section id="speakers" class="section">
-        <h2>Speakers</h2>
-        <p class="coming-soon">Coming Soon!</p>
-    </section>
-
-    <section id="sponsors" class="section">
-        <h2>Sponsors</h2>
-        <p class="coming-soon">Coming Soon!</p>
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <p>For more information or queries, feel free to contact:</p>
+        <p><strong>Email:</strong> <a href="mailto:mrais@vsu.edu">mrais@vsu.edu</a> or <a href="mailto:jlee@vsu.edu">jlee@vsu.edu</a></p>
     </section>
 </div>
 
